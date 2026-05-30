@@ -59,7 +59,12 @@ public class JwtService {
 
     public Integer extractUserId(String token) {
         Claims claims = extractAllClaims(token);
-        return (Integer) claims.get("idUsuario");
+        return (Integer) claims.get("userId");
+    }
+
+    public String extractName(String token) {
+        Claims claims = extractAllClaims(token);
+        return (String) claims.get("name");
     }
 
     public boolean isTokenValid(String token, String userEmail) {
